@@ -1,8 +1,9 @@
 "use strict"
 
+let weatherTemplate = require('../../templates/article/weather.hbs')
+
 function getZip () {
     let userZip = $('#zipInput').val()
-    console.log('user zip', userZip)
     return userZip
 }
 
@@ -13,10 +14,11 @@ function getWeatherByZip () {
         $.ajax({
             url: `http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&APPID=7673295b59b0787e94246f813ff94480`
         }).done(function (weatherData) {
-            console.log('weatherData', weatherData)
+            $('.output').append(weatherTemplate(weatherData))
             resolve(weatherData)
         })
     })
 }
+
 
 module.exports = getWeatherByZip

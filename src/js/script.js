@@ -1,8 +1,8 @@
-"use strict"
+    "use strict"
 
-let events = require('./events.js')
+    let events = require('./events.js')
 
-$( document ).ready(function() {
-    events()
-});
+    $( document ).ready(function() {
+        events.setEvents()
+    });
 
